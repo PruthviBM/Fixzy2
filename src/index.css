@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Light mode (default) */
+  body {
+    @apply bg-light-bg text-light-text font-sans min-h-screen transition-colors duration-200;
+  }
+
+  /* Dark mode */
+  .dark body {
+    @apply bg-dark-bg text-dark-text;
+  }
+}
+
+/* Custom scrollbars - light */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Custom scrollbars - dark */
+.dark ::-webkit-scrollbar-track {
+  background: #0b0f19;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #232c3d;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #3e4c63;
+}
+
+/* ===== LIGHT MODE GLASS PANEL ===== */
+.glass-panel {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.07);
+}
+
+.glass-panel-hover {
+  transition: all 0.15s ease-in-out;
+}
+
+.glass-panel-hover:hover {
+  border-color: #C7D2FE;
+  box-shadow: 0 4px 12px 0 rgba(99, 102, 241, 0.10);
+}
+
+/* ===== DARK MODE GLASS PANEL ===== */
+.dark .glass-panel {
+  background: rgba(17, 24, 39, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: none;
+}
+
+.dark .glass-panel-hover:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.15);
+}
+
+/* ===== GRADIENT TEXT ===== */
+.gradient-text {
+  background: linear-gradient(135deg, #4338CA 0%, #6366f1 50%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 60%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===== DEMO BADGE PULSE ===== */
+@keyframes demo-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.demo-badge {
+  animation: demo-pulse 2.5s ease-in-out infinite;
+}
+
+/* ===== TRANSITION DEFAULTS ===== */
+* {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+}
+
+/* Exclude transitions for elements that should animate differently */
+button, a {
+  transition-property: background-color, border-color, color, box-shadow, transform, opacity;
+  transition-duration: 150ms;
+}
