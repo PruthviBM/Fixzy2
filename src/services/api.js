@@ -1,6 +1,5 @@
 // Fixzy Behavioral Diagnostic API Service Layer
 // Prepared for direct integration with AWS API Gateway (POST /events -> FixzyEventIngestor Lambda -> FixzyEvents DynamoDB)
-
 import {
   overviewMetrics,
   frictionIssues,
@@ -11,7 +10,7 @@ import {
   trendsData,
   experimentsData,
   privacyConfig
-} from '../data/mockData';
+} from '../components/data/mockData';
 
 export const API_BASE_URL = import.meta.env.VITE_FIXZY_API_ENDPOINT || '';
 
